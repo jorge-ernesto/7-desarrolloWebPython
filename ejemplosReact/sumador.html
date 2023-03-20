@@ -17,16 +17,21 @@
                     respuesta:"",
                 })
 
+                // Verificar state
+                React.useEffect(() => {
+                    console.log("state", state);
+                }, [state]);
+
                 function inputKeyPress(event)
                 {
                     if(event.key === "Enter")
                     {
                         const resultado = parseInt(state.respuesta)
-                        if(resultado === state.numero1 + state.numero2)
+                        if(resultado === state.numero1 + state.numero2) // Valida que la respuesta sea correcta
                         {
                             setState({
                                 ...state,
-                                numero1:Math.ceil(Math.random()*10),
+                                numero1:Math.ceil(Math.random()*10), // Genera un numero aleatorio entero entre 1 y 10
                                 numero2:Math.ceil(Math.random()*10),
                                 puntuacion: state.puntuacion + 1
                             })
@@ -36,6 +41,8 @@
 
                 function actualizarRespuesta(event)
                 {
+                    // ...state obtiene las propiedades del objeto original: numero1, numero2, puntuacion, respuesta
+                    // Esto permite modificar solo algunas propiedades del objeto original con setState
                     setState({
                         ...state,
                         respuesta:event.target.value

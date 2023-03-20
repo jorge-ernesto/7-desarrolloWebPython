@@ -19,8 +19,8 @@
                 return(
                     <div>
                         {
-                            state.nombres.map(usuario => {
-                                return(<App nombre={usuario} />)
+                            state.nombres.map(usuario => { // Recorremos array de nombres
+                                return(<App nombre={usuario} />) // Enviamos prop a componente funcional de React
                             })
                         }
                     </div>
